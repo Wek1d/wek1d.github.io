@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arda K. | Portfolio</title>
+    <!-- Modern ve Editoryal Fontlar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- TEMEL AYARLAR & RENK PALETİ --- */
+        :root {
+            --bg-color: #0c0b09; /* Biraz daha derin bir siyah/kahve */
+            --surface-color: #151311; /* Kart arka planları */
+            --text-main: #f0ead6; /* Krem rengi ana metin */
+            --text-muted: #8a8578; /* Soluk alt metin */
+            --accent: #d4b895; /* Altın/kum rengi vurgular */
+            --border: rgba(240, 234, 214, 0.08); /* Çok ince, zarif çizgiler */
+            --border-hover: rgba(212, 184, 149, 0.3); /* Hover çizgi rengi */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            /* Hafif bir doku eklemek için (opsiyonel) */
+            background-image: radial-gradient(circle at 50% 0%, #1a1714 0%, #0c0b09 70%);
+        }
+
+        /* Editoryal Serif Font Sınıfı */
+        .serif {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+
+        /* --- ÜST KISIM (HEADER) --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 100px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .profile-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* GitHub Profil Resmi */
+        .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            object-fit: cover;
+        }
+
+        .logo-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .github-btn {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 10px 20px;
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            transition: all 0.4s ease;
+        }
+
+        .github-btn:hover {
+            background-color: var(--surface-color);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* --- HERO (GİRİŞ) BÖLÜMÜ --- */
+        .hero {
+            margin-bottom: 120px;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.1;
+            font-weight: 300;
+            margin-bottom: 30px;
+            letter-spacing: -1.5px;
+        }
+
+        .hero-title .serif {
+            font-size: 4.2rem;
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 500px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* --- PROJELER (GRID) --- */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border);
+            padding: 40px;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 260px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Kartın sol üstüne numara */
+        .card-number {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .project-card:hover {
+            border-color: var(--border-hover);
+            background-color: #1a1714;
+            transform: translateY(-5px);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 40px;
+            max-width: 85%;
+            line-height: 1.6;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+            margin-top: auto;
+        }
+
+        .tags {
+            display: flex;
+            gap: 15px;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+
+        .card-arrow {
+            color: var(--accent);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .card-arrow {
+            transform: translateX(5px);
+        }
+
+        /* --- ALT KISIM (FOOTER) --- */
+        footer {
+            margin-top: 120px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Mobil Uyumluluk */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-title .serif {
+                font-size: 2.7rem;
+            }
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            .project-card {
+                padding: 30px;
+            }
+            .card-number {
+                top: 30px;
+                right: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- ÜST KISIM -->
+        <header>
+            <div class="profile-area">
+                <!-- GitHub profil fotoğrafın otomatik çekiliyor -->
+                <img src="https://github.com/Wek1d.png" alt="Arda K." class="profile-pic">
+                <div class="logo-text">arda.k</div>
+            </div>
+            <a href="https://github.com/Wek1d" target="_blank" class="github-btn">GitHub Profilim ↗</a>
+        </header>
+
+        <!-- HERO BÖLÜMÜ -->
+        <section class="hero">
+            <h1 class="hero-title">
+                Merhaba, ben Arda. <br>
+                <span class="serif">Hızlı ve profesyonel</span> <br>
+                dijital araçlar.
+            </h1>
+            <p class="hero-subtitle">
+                Açık kaynak projeler geliştiriyorum. İşte üzerinde çalıştığım ve yayında olan bazı web araçları.
+            </p>
+        </section>
+
+        <!-- PROJELER -->
+        <main>
+            <div class="section-header">
+                <h2 class="section-title">Seçili Projeler</h2>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">2024 — 2026</span>
+            </div>
+            
+            <div class="projects-grid">
+                
+                <!-- Proje 1 -->
+                <a href="https://wek1d.github.io/WeXProfile-Downloader/" target="_blank" class="project-card">
+                    <span class="card-number">01</span>
+                    <div>
+                        <div class="card-title">WeXProfile Downloader</div>
+                        <p class="card-desc">Instagram profil fotoğraflarını yüksek çözünürlükte indirme ve analiz etme aracı.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Extension</span>
+                        </div>
+                        <span class="card-arrow">→</span>
+                    </div>
+                </a>
+
+                <!-- Proje 2 -->
+                <a href="https://wek1d.github.io/hdkicks/" target="_blank" class="project-card">
+                    <span class="card-number">02</span>
+                    <div>
+                        <div class="card-title">hdkicks</div>
+                        <p class="card-desc">Kick kanallarının profil resimlerini ve banner'larını en yüksek çözünürlükte çekip indiren araç.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">API</span>
+                        </div>
+                        <span class="card-arrow">→</span>
+                    </div>
+                </a>
+
+                <!-- Proje 3 -->
+                <a href="https://wek1d.github.io/video-metadata-incspector/" target="_blank" class="project-card">
+                    <span class="card-number">03</span>
+                    <div>
+                        <div class="card-title">Video Metadata Inspector</div>
+                        <p class="card-desc">Video dosyalarının meta verilerini incelemek için hafif ve hızlı bir web aracı.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="tags">
+                            <span class="tag">Web App</span>
+                            <span class="tag">Utility</span>
+                        </div>
+                        <span class="card-arrow">→</span>
+                    </div>
+                </a>
+
+                <!-- Proje 4 -->
+                <a href="https://wek1d.github.io/hdtiktok/" target="_blank" class="project-card">
+                    <span class="card-number">04</span>
+                    <div>
+                        <div class="card-title">hdtiktok</div>
+                        <p class="card-desc">TikTok içerikleri için yüksek kaliteli indirme ve profil araçları.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Tools</span>
+                        </div>
+                        <span class="card-arrow">→</span>
+                    </div>
+                </a>
+
+            </div>
+        </main>
+
+        <!-- ALT KISIM -->
+        <footer>
+            <div>© 2026 Arda K. Tüm hakları saklıdır.</div>
+            <div>Minimalist Tasarım</div>
+        </footer>
+    </div>
+
+</body>
+</html>
